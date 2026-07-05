@@ -1,0 +1,12 @@
+[phases.setup]
+nixPkgs = ["go", "python3"]
+
+[phases.build]
+cmds = [
+  "go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest",
+  "go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest",
+  "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest"
+]
+
+[start]
+cmd = "python3 agent.py"
